@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tarefa3.aspx.cs" Inherits="EISOL_TestePraticoWebForms.Tarefa3" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tarefa3.aspx.cs" Inherits="EISOL_TestePraticoWebForms.Tarefa3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
@@ -45,7 +45,7 @@
                                 UF
                             </label>
                             <%--DICA: Coloque o evento OnSelectedIndexChanged pra esse cara aqui!--%>
-                            <asp:DropDownList ID="ddlUf" runat="server" CssClass="form-control">
+                            <asp:DropDownList ID="ddlUf" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlUf_SelectedIndexChanged">
                             </asp:DropDownList>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -97,15 +97,12 @@ namespace BLL
         /// </summary>
         /// <param name="codigoUF">Código da UF</param>
         /// <returns>List(DAO.CIDADES)</returns>
-        public List<DAO.CIDADES> CarregarPorUF(decimal codigoUF) // <----------------------------------------------- Ei! Veja esse método aqui.
+        public List<DAO.CIDADES> CarregarPorUF(decimal codigoUF)
         {
-            // Parece estar faltando algo nessa consulta SQL.
-            // Dica: Observe o método Carregar pra ter uma iéia do que fazer! =D
-            string sql = SELECT + " ????? ";
-
-            // Parece que estão faltando alguns código aqui...
-
-            var dataTable = new DAO.ConexaoBD().Executar(sql, CommandType.Text);
+            string sql = SELECT + " WHERE COD_UF = :COD_UF ";
+            var parametros = new System.Data.Common.DbParameter[1];
+            parametros[0] = new Oracle.ManagedDataAccess.Client.OracleParameter("COD_UF", codigoUF);
+            var dataTable = new DAO.ConexaoBD().Executar(sql, CommandType.Text, parametros);
 
             if (dataTable.Rows.Count > 0)
             {
